@@ -17,27 +17,86 @@ int createfile(int sizefile) {
     newtxt.close();
 }
 
+//decimal a binario
+std::string tobinary(int n){
+    std::string r;
+    while(n!=0){
+        r=(n%2==0 ?"0":"1")+r;
+        n/=2;
+    }
+    return r;
+}
+//string a integer
+int toint(std::string str){
+    int num;
+    num= stoi(str);
+    return num;
+}
+
 //lee el archivo txt por linea y lo escribe en consola
 
 int leer(std::string filename){
+    int Tam;
+
+    if (filename=="New1KB.txt"){
+        Tam=1;
+    }
+    else if (filename =="New4KB.txt"){
+        Tam=4;
+    }
+    else if (filename =="New8KB.txt"){
+        Tam=8;
+    }
+    else if (filename =="New12KB.txt"){
+        Tam=12;
+    }
+    else if (filename =="New24KB.txt"){
+        Tam=24;
+    }
+    else if (filename =="New36KB.txt"){
+        Tam=36;
+    }
+    else std::cout << "El archivo no existe";
+
+
+    int ArrVa[Tam*256];
+
     std::stringstream ss;
     int num;
     std::string line;
     std::ifstream myfile(filename);
+    int count  = 0;
     if(myfile.is_open()){
         while(getline(myfile,line)){
+
             std::cout<<"el numero es "<<line<<"\n";
 
             ss<<line;
             ss>>num;
             std::cout<<"el numero es "<<num<<"\n";
 
+            int t;
+            t= toint(tobinary(num));
+            ArrVa[count]= t;
+
+            count++;
+            std::cout<<ArrVa<<"\n";
+
             break;
         }
         myfile.close();
     }
     else std::cout<<"no se pudo abrir el archivo";
+
 }
+
+
+int defTam(std::string filename){
+    std::stringstream ss;
+}
+
+
+
 
 //Array para la eleccion de tamaño de pagina
 int inpS[6]={1,4,8,12,24,36};
@@ -51,23 +110,6 @@ int multipfiles(int sizearray[]) {
     }
 }
 
-//string a integer
-int toint(std::string str){
-    int num;
-    num= stoi(str);
-    return num;
-}
-
-
-//decimal a binario
-std::string tobinary(int n){
-    std::string r;
-    while(n!=0){
-        r=(n%2==0 ?"0":"1")+r;
-        n/=2;
-    }
-    return r;
-}
 
 
 
@@ -78,6 +120,7 @@ int main() {
 
     //std::cout << tobinary(num);
     leer("New1KB.txt");
+    defTam("New1KB.txt");
 
 
     return 0;
