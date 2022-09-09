@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
+#include <sstream>
 
 #include "page.h"
 
@@ -19,11 +20,18 @@ int createfile(int sizefile) {
 //lee el archivo txt por linea y lo escribe en consola
 
 int leer(std::string filename){
+    std::stringstream ss;
+    int num;
     std::string line;
     std::ifstream myfile(filename);
     if(myfile.is_open()){
         while(getline(myfile,line)){
             std::cout<<"el numero es "<<line<<"\n";
+
+            ss<<line;
+            ss>>num;
+            std::cout<<"el numero es "<<num<<"\n";
+
             break;
         }
         myfile.close();
