@@ -3,3 +3,5 @@
 //
 
 #include "PagedArray.h"
+
+//Algoritmo de busqueda para las paginas
