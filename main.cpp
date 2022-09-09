@@ -24,6 +24,7 @@ int leer(std::string filename){
     if(myfile.is_open()){
         while(getline(myfile,line)){
             std::cout<<"el numero es "<<line<<"\n";
+            break;
         }
         myfile.close();
     }
@@ -42,6 +43,14 @@ int multipfiles(int sizearray[]) {
     }
 }
 
+//string a integer
+int toint(std::string str){
+    int num;
+    num= stoi(str);
+    return num;
+}
+
+
 //decimal a binario
 std::string tobinary(int n){
     std::string r;
@@ -58,7 +67,8 @@ std::string tobinary(int n){
 int main() {
     //std::cout << sizeof(inpS);
     multipfiles(inpS);
-    //std::cout << tobinary(1804289383);
+
+    //std::cout << tobinary(num);
     leer("New1KB.txt");
 
 
