@@ -6,6 +6,7 @@
 
 #include "page.h"
 #include "PagedArray.cpp"
+#include "Algoritmos_ord.cpp"
 
 // crea o lee el archivo txt y crea el contenido aleatorio
 int createfile(int sizefile) {
