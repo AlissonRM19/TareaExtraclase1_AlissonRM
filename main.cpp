@@ -3,22 +3,21 @@
 #include <string>
 #include <cstdlib>
 #include <sstream>
-
 #include "page.h"
 
 
-// crea o lee el archivo txt y crea el contenido aleatorio
+//Funcion que crea archivo txt y crea el contenido aleatorio
 int createfile(int sizefile) {
-    std::string suma = std::to_string(sizefile);
-    std::ofstream newtxt ("New"+suma+"KB.txt");
+    std::string sum = std::to_string(sizefile);
+    std::ofstream newtxt ("New"+sum+"KB.txt");
     int numint = sizefile*256;
     for (int i=0;i<numint;i++)
         newtxt<<rand()<<","<<std::endl;
     newtxt.close();
 }
 
-//decimal a binario
-std::string tobinary(int n){
+//Funcion que convierte decimal a binario
+std::basic_string<char> tobinary(int n){
     std::string r;
     while(n!=0){
         r=(n%2==0 ?"0":"1")+r;
@@ -26,15 +25,15 @@ std::string tobinary(int n){
     }
     return r;
 }
-//string a integer
-int toint(std::string str){
-    int num;
-    num= stoi(str);
+
+//FUncion que convierte un string a integer
+int toint(std::basic_string<char> str){
+    long long int num;
+    num= std::stoi(str);
     return num;
 }
 
-//lee el archivo txt por linea y lo escribe en consola
-
+//Funcion que determina que archivo leer y extrae el numero leido
 int leer(std::string filename){
     int Tam;
 
@@ -58,7 +57,7 @@ int leer(std::string filename){
     }
     else std::cout << "El archivo no existe";
 
-
+    //Creacion del array de bits vacio
     int ArrVa[Tam*256];
 
     std::stringstream ss;
@@ -75,53 +74,39 @@ int leer(std::string filename){
             ss>>num;
             std::cout<<"el numero es "<<num<<"\n";
 
+            std::stringstream ssbin;
             int t;
-            t= toint(tobinary(num));
-            ArrVa[count]= t;
+            std::basic_string<char> s;
+
+            s= tobinary(num);
+            ssbin<<s;
+            ssbin>>t;
+            //ArrVa[count]=num;
 
             count++;
-            std::cout<<ArrVa<<"\n";
+            std::cout<<s<<"\n";
 
             break;
         }
         myfile.close();
     }
     else std::cout<<"no se pudo abrir el archivo";
-
 }
-
-
-int defTam(std::string filename){
-    std::stringstream ss;
-}
-
-
-
 
 //Array para la eleccion de tamaño de pagina
 int inpS[6]={1,4,8,12,24,36};
 
-// Crea los 6 archivos de distinto tamano
+//Funcion que crea los 6 archivos de distinto tamano
 int multipfiles(int sizearray[]) {
     for (int i = 0; i < 6; i++) {
         int size = sizearray[i];
         createfile(size);
-
     }
 }
 
-
-
-
 //Funcion principal
 int main() {
-    //std::cout << sizeof(inpS);
     multipfiles(inpS);
-
-    //std::cout << tobinary(num);
     leer("New1KB.txt");
-    defTam("New1KB.txt");
-
-
     return 0;
 }
