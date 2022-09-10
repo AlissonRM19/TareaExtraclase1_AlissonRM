@@ -36,6 +36,7 @@ int toint(std::basic_string<char> str){
 int leer(std::string filename){
     int Tam;
 
+    //Comprobaciones para averiguar el tamano del archivo a leer
     if (filename=="New1KB.txt"){
         Tam=1;
     }
@@ -59,19 +60,21 @@ int leer(std::string filename){
     //Creacion del array de bits vacio
     int ArrVa[Tam*256];
 
-    std::stringstream ss;
-    int num;
     std::string line;
     std::ifstream myfile(filename);
     int count  = 0;
     if(myfile.is_open()){
+
+        //Ciclo que lee el archivo, obtiene el numero y lo convierte a binario
         while(getline(myfile,line)){
 
-            std::cout<<"el numero es "<<line<<"\n";
+            std::stringstream ss;
+            int num;
 
+            std::cout<<"The line is "<<line<<"\n";
             ss<<line;
             ss>>num;
-            std::cout<<"el numero es "<<num<<"\n";
+            std::cout<<"The number is "<<num<<"\n";
 
             std::stringstream ssbin;
             int t;
@@ -81,11 +84,8 @@ int leer(std::string filename){
             ssbin<<s;
             ssbin>>t;
             //ArrVa[count]=num;
-
             count++;
-            std::cout<<s<<"\n";
-
-            break;
+            std::cout<<"The binary is "<<s<<"\n";
         }
         myfile.close();
     }
