@@ -8,6 +8,10 @@
 
 class PagedArray {
 
+    int key;
+    int index;
+    int pn;
+
 };
 
 
