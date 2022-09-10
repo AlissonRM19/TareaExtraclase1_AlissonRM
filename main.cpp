@@ -5,7 +5,7 @@
 #include <sstream>
 
 #include "page.h"
-#include "PagedArray.cpp"
+
 
 // crea o lee el archivo txt y crea el contenido aleatorio
 int createfile(int sizefile) {
@@ -121,12 +121,6 @@ int main() {
     //std::cout << tobinary(num);
     leer("New1KB.txt");
     defTam("New1KB.txt");
-
-    //Prueba de reemplazo de paginas
-    int inpS[6] ;
-    int pn = sizeof(inpS) / sizeof(inpS[0]);
-    int fn = 4;
-    optimalPage(inpS, pn, fn);
 
 
     return 0;
