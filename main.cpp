@@ -108,4 +108,5 @@ int main() {
     multipfiles(inpS);
     leer("New1KB.txt");
     return 0;
+
 }
