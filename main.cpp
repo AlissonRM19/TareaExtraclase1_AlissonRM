@@ -5,7 +5,6 @@
 #include <sstream>
 #include "page.h"
 
-
 //Funcion que crea archivo txt y crea el contenido aleatorio
 int createfile(int sizefile) {
     std::string sum = std::to_string(sizefile);
