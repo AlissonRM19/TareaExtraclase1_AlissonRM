@@ -1,0 +1,14 @@
+//
+// Created by alisson on 09/09/22.
+//
+
+#ifndef TAREAEXTRACLASE1_ALISSONRM_ALGORITMOS_ORD_H
+#define TAREAEXTRACLASE1_ALISSONRM_ALGORITMOS_ORD_H
+
+
+class Algoritmos_ord {
+
+};
+
+
+#endif //TAREAEXTRACLASE1_ALISSONRM_ALGORITMOS_ORD_H

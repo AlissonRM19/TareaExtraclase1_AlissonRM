@@ -122,6 +122,8 @@ int main() {
     leer("New1KB.txt");
     defTam("New1KB.txt");
 
+    //Prueba para el algoritmo de reemplazo
+
     int inpS[6];
     int pn = sizeof(inpS) / sizeof(inpS[0]);
     int fn = 4;
