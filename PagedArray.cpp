@@ -4,16 +4,12 @@
 
 #include "PagedArray.h"
 
-//Algoritmo de busqueda para las paginas
+//Algoritmo de reemplazo
 
-
-// CPP program to demonstrate optimal page
-// replacement algorithm.
 #include <bits/stdc++.h>
 using namespace std;
 
-// Function to check whether a page exists
-// in a frame or not
+// En esta funcion se hace una revision de que la pagina exista
 bool search(int key, vector<int>& fr)
 {
     for (int i = 0; i < fr.size(); i++)
